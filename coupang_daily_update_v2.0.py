@@ -90,7 +90,7 @@ def run_full_automation():
     # 1. 데이터 로드
     print("\n📦 데이터 로딩 중...")
     df_gmv = load_data_from_folder(FOLDER_GMV, 'csv', col_limit=28)
-    df_stock = load_data_from_folder(FOLDER_STOCK, 'csv', col_limit=15)
+    df_stock = load_data_from_folder(FOLDER_STOCK, 'csv', col_limit=21)  # 15 -> 21로 수정 (A~U열)
     df_ads = load_data_from_folder(FOLDER_ADS, 'xlsx', header_row=0, col_limit=44)
     df_si = load_data_from_folder(FOLDER_SI, 'xlsx', header_row=1, col_limit=19)
 
