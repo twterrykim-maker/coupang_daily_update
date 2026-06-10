@@ -24,7 +24,6 @@ SHEET_NAME_SI = 'SI raw'
 
 PIVOT_LIST = [
     ("chart board", "피벗 테이블5"),
-    ("STOCK PIVOT", "피벗 테이블4"),
     ("AD", "피벗 테이블24"),
     ("SI pivot", "피벗 테이블1")
 ]
