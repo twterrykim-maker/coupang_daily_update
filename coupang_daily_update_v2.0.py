@@ -9,7 +9,7 @@ warnings.filterwarnings('ignore')
 # ==============================================================================
 # ⚙ 1. 경로 및 설정
 # ==============================================================================
-MASTER_FILE_PATH = r"C:\Users\taewoong.kim\OneDrive - L'Oréal\General - -KR- LRP MKT_ECOM TEAM\Coupang_2024 UPDATE\00_공급현황(Master file)\DAILY update\Daily Update SO.STOCK.PPM_26.06.xlsx"
+MASTER_FILE_PATH = r"C:\Users\taewoong.kim\OneDrive - L'Oréal\General - -KR- LRP MKT_ECOM TEAM\Coupang_2024 UPDATE\00_공급현황(Master file)\DAILY update\Daily Update SO.STOCK.PPM_26.07.xlsx"
 
 FOLDER_GMV   = r"C:\Users\taewoong.kim\OneDrive - L'Oréal\General - -KR- LRP MKT_ECOM TEAM\Coupang_2024 UPDATE\00_공급현황(Master file)\DAILY update\raw_gmv"
 FOLDER_STOCK = r"C:\Users\taewoong.kim\OneDrive - L'Oréal\General - -KR- LRP MKT_ECOM TEAM\Coupang_2024 UPDATE\00_공급현황(Master file)\DAILY update\raw_inventory"
