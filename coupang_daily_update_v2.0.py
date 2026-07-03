@@ -118,15 +118,15 @@ def run_full_automation():
             header_row = 4
             data_start = header_row + 1
             
-            last_row = ws.range('B' + str(ws.cells.last_cell.row)).end('up').row
+            last_row = ws.range('A' + str(ws.cells.last_cell.row)).end('up').row
             if last_row >= data_start:
-                # [설명] B열(인덱스 2)부터 시작. df_gmv 컬럼 수(29개, B~AD열)만큼만 동적으로 영역 지정하여 삭제 (수식 보호)
-                end_col_idx = 2 + df_gmv.shape[1] - 1  # B(2) + 29 - 1 = 30 → AD열
+                # [설명] A열(인덱스 1)부터 시작. df_gmv 컬럼 수(29개, A~AC열)만큼만 동적으로 영역 지정하여 삭제 (수식 보호)
+                end_col_idx = 1 + df_gmv.shape[1] - 1  # A(1) + 29 - 1 = 29 → AC열
                 end_col_char = xw.utils.col_name(end_col_idx)
-                ws.range(f'B{data_start}:{end_col_char}{last_row}').clear_contents()
+                ws.range(f'A{data_start}:{end_col_char}{last_row}').clear_contents()
             
-            # 새 데이터를 B열 지정 위치부터 붙여넣기 (B ~ AD열, 29개 컬럼)
-            ws.range(f'B{data_start}').options(index=False, header=False).value = df_gmv
+            # 새 데이터를 A열 지정 위치부터 붙여넣기 (A ~ AC열, 29개 컬럼)
+            ws.range(f'A{data_start}').options(index=False, header=False).value = df_gmv
             print(f"   👉 {len(df_gmv)}건 덮어쓰기 완료")
 
         # ---------------------------------------------------------
