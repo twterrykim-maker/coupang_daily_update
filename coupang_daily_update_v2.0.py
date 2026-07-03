@@ -88,7 +88,7 @@ def run_full_automation():
 
     # 1. 데이터 로드
     print("\n📦 데이터 로딩 중...")
-    df_gmv = load_data_from_folder(FOLDER_GMV, 'csv', col_limit=28)
+    df_gmv = load_data_from_folder(FOLDER_GMV, 'xlsx', header_row=0, col_limit=29)  # A~AC = 29개 컬럼
     df_stock = load_data_from_folder(FOLDER_STOCK, 'csv', col_limit=21)  # 15 -> 21로 수정 (A~U열)
     df_ads = load_data_from_folder(FOLDER_ADS, 'xlsx', header_row=0, col_limit=44)
     df_si = load_data_from_folder(FOLDER_SI, 'xlsx', header_row=1, col_limit=19)
@@ -120,12 +120,12 @@ def run_full_automation():
             
             last_row = ws.range('B' + str(ws.cells.last_cell.row)).end('up').row
             if last_row >= data_start:
-                # [설명] B열(인덱스 2)부터 시작. df_gmv 컬럼 수만큼만 동적으로 영역 지정하여 삭제 (수식 보호)
-                end_col_idx = 2 + df_gmv.shape[1] - 1 
+                # [설명] B열(인덱스 2)부터 시작. df_gmv 컬럼 수(29개, B~AD열)만큼만 동적으로 영역 지정하여 삭제 (수식 보호)
+                end_col_idx = 2 + df_gmv.shape[1] - 1  # B(2) + 29 - 1 = 30 → AD열
                 end_col_char = xw.utils.col_name(end_col_idx)
                 ws.range(f'B{data_start}:{end_col_char}{last_row}').clear_contents()
             
-            # 새 데이터를 B열 지정 위치부터 붙여넣기
+            # 새 데이터를 B열 지정 위치부터 붙여넣기 (B ~ AD열, 29개 컬럼)
             ws.range(f'B{data_start}').options(index=False, header=False).value = df_gmv
             print(f"   👉 {len(df_gmv)}건 덮어쓰기 완료")
 
